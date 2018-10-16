@@ -1,0 +1,45 @@
+
+Developing Data Products Course Project
+========================================================
+author: Elena Fedorova
+date: 15 October 2018
+autosize: true
+transition: rotate
+transition-speed: slow
+width: 100%
+
+
+Introduction
+========================================================
+This presentation is a part of the Course Project of Developing Data Products Course delivered by the John Hopkins University on Coursera. This course project consists of the two parts: to develop a Shiny application and publish it on Rstudio's servers and to create a reproducible pitch presentation about the application.
+The documentation on this project is as follows:
+
+- The **GitHub repository** containing all the source codes for this project (ui.R, server.R and this presentation Course_project.Rpres): <https://github.com/elfedorova/09_Developing_Data_Products_Course_Project>
+- The deployed **shiny application** is available by the link: <https://elfedorova.shinyapps.io/Test_project/>
+- The **source data**: the application is built using the *Diamonds* data set
+
+Application "The Diamonds catalogue"
+========================================================
+The application developed in this course project simulates the site of a diamond-seller: it allows the propespective buyer to find the diamond with characteristics of interest and to estimate the total cost of their purchase. 
+
+The user enters the amount of pieces they would like to purchase per order line. In the second filter, specifies the maximum budget they would to spend on the purchase: the table will show only those diamonds, where total amount of purchase is below the entered value.
+
+Additional selection filters allow users to restrict the selection according to various diamond characteristics such as clarity, color etc.
+
+The Diamonds data set
+========================================================
+This data set containing the prices and other attributes of almost 54,000 diamonds. 
+
+```{r, message = FALSE, warning = FALSE, message = FALSE}
+library(ggplot2)
+str(diamonds)
+```
+
+Plot
+========================================================
+Here is the graphical overview of the data set (count of observations by some selected characteristics)
+
+```{r, echo=FALSE}
+library(ggplot2)
+ggplot(data = diamonds) + geom_bar(mapping = aes(x = clarity, fill = cut), position = "dodge")
+```
